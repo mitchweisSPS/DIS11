@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Myspace</h2>
+    <table>
+        <tr>
+            <th>Personal Information</th>
+        </tr>
+        {% for row in info %}
+        <tr>
+            <td>Student ID: {{ row['student_id'] }}</td>
+        </tr>
+        <tr>
+            <td>Name: {{ row['student_firstname'] }} {{ row['student_lastname'] }}</td>
+        </tr>
+        <tr>
+            <td>Email: {{ row['student_email'] }}</td>
+        </tr>
+        <tr>
+            <td>Password: {{ row['student_password'] }}</td>
+        </tr>
+        <tr>
+            <td>Year level: {{ row['student_year'] }}</td>
+        </tr>
+        <tr>
+            <td>House and Tutor: {{ row['house_name'] }} (0{{ row['tutor_group'] }})</td>
+        </tr>
+        <tr>
+            <td>Current points: {{ row['student_points'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 25%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+{% endblock %}

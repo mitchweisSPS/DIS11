@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Events Page</h2>
+    <table>
+        <tr>
+            <th>Event ID</th>
+            <th>Event Name</th>
+            <th>Event Time</th>
+            <th>Event Date</th>
+            <th>Event Desc</th>
+        </tr>
+        {% for row in events %}
+        <tr>
+            <td>{{ row['event_id'] }}</td>
+            <td>{{ row['event_name'] }}</td>
+            <td>{{ row['event_time'] }}</td>
+            <td>{{ row['event_date'] }}</td>
+            <td>{{ row['event_desc'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+{% endblock %}

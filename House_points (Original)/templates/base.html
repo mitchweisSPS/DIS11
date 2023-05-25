@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Page</title>
+</head>
+<body>
+<img class="img" src="../static/images/header.png" alt="st pauls school header">
+
+    <div class="w3-bar w3-white">
+        <a href="{{ url_for('index') }}" class="w3-bar-item w3-button">Home</a>
+        {% if session['role'] == "student" %}
+        <a href="{{ url_for('myspace') }}" class="w3-bar-item w3-button">Myspace</a>
+        {% endif %}
+        {% if session['role'] != "student" %}
+        <a href="{{ url_for('stafflounge') }}" class="w3-bar-item w3-button">StaffLounge</a>
+        {% endif %}
+        {% if session['role'] == "student" %}
+        <a href="{{ url_for('house') }}" class="w3-bar-item w3-button">House</a>
+        {% endif %}
+        {% if session['role'] != "student" %}
+        <a href="{{ url_for('tutor') }}" class="w3-bar-item w3-button">Tutor</a>
+        {% endif %}
+        {% if session['role'] != "student" %}
+        <a href="{{ url_for('eventsmanager') }}" class="w3-bar-item w3-button">Events Manager</a>
+        {% endif %}
+        <a href="{{ url_for('events') }}" class="w3-bar-item w3-button">Events</a>
+        <a href="{{ url_for('leaderboards') }}" class="w3-bar-item w3-button">Leaderboards</a>
+        <!-- <a href="{{ url_for('register') }}" class="w3-bar-item w3-button">Register</a> -->
+        <!-- <a href="{{ url_for('login') }}" class="w3-bar-item w3-button">Login</a> -->
+        <a href="{{ url_for('landingpage') }}" class="w3-bar-item w3-button">Logout</a>
+    </div>
+    <div class="div2">
+    <h1>Northside DJ</h1>
+    {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+<img class="img" src="../static/images/footer.png" alt="st pauls school header">
+</html>
+
+<style>
+img {
+  width: 100%;
+}
+
+body {
+  padding: 20px;
+}
+</style>

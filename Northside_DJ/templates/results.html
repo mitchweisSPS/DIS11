@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <body>
+    <h1>Songs for {{ artist }}</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Song Name</th>
+          <th>Add to Favourites</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for album in albums %}
+        <tr>
+          <td>{{ album.strTrack }}</td>
+          <td>
+            <form method="post">
+              <button type="submit" id="strTrack" name="strTrack" value="{{ album.strTrack }}">Add to Favourite</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/search">Search another artist</a>
+  </body>
+{% endblock %}

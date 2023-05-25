@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Leaderboards Page</h2>
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Student Tutor</th>
+            <th>Student Points</th>
+        </tr>
+        {% for row in students %}
+        <tr>
+            <td>{{ row['student_firstname'] }} {{ row['student_lastname'] }}</td>
+            <td>{{ row['house_name'] }} (0{{ row['tutor_group'] }})</td>
+            <td>{{ row['student_points'] }} points</td>
+        </tr>
+        {% endfor %}
+    </table>
+<br>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.top {
+  background-color: yellow;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+{% endblock %}

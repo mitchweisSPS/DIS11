@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<h2>Current Events</h2>
+    <table>
+        <tr class="w3-black">
+            <th>Event ID</th>
+            <th>Event Name</th>
+            <th>Event Time</th>
+            <th>Event Date</th>
+            <th>Event DJ</th>
+            <th>Join Event</th>
+
+        </tr>
+        {% for row in events %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td><input type="checkbox"></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+
+  <body>
+  <form method="POST">
+    <div class="container">
+      <h2>Add Event</h2>
+      <label for="event_id"><b>Event ID</b></label>
+      <input type="number" placeholder="Enter Event ID" name="event_id" id="event_id" required>
+
+      <label for="event_name"><b>Event Name</b></label>
+      <input type="text" placeholder="Enter Event Name" name="event_name" id="event_name" required>
+
+      <label for="event_time"><b>Event Time</b></label>
+      <input type="time" placeholder="Enter Event Time" name="event_time" id="event_time" required>
+
+      <label for="event_date"><b>Event Date</b></label>
+      <input type="date" placeholder="Enter Event Date" name="event_date" id="event_date" required>
+
+      <label for="event_dj"><b>Event DJ</b></label>
+      <input type="text" placeholder="Who is the DJ?" name="event_dj" id="event_dj" required>
+
+      <input type="submit" name="submit" class="registerbtn">
+    </div>
+</form>
+  </body>
+
+<style>
+img {
+  width: 100%;
+}
+
+tr:hover {
+  background-color: darkgrey;
+}
+
+body {
+  padding: 20px;
+}
+
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=date], input[type=number], input[type=time], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #000000;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+title-boxes {
+  background-color: grey;
+}
+
+
+
+</style>
+{% endblock %}

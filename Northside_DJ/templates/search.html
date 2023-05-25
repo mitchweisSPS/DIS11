@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <body>
+    <h1>Search for Music</h1>
+    <form method="post">
+      <div class="form-group">
+        <label>Search:</label>
+        <input type="text" name="artist" id="artist" required>
+        <button type="submit">Search</button>
+      </div>
+    </form>
+  </body>
+{% endblock %}

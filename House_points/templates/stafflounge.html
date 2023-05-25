@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Staff Lounge</h2>
+<form method="POST">
+  <div class="container">
+    <h2>ADD or Change Student Points</h2>
+    <label for="student_firstname"><b>Student's First Name</b></label>
+    <input type="text" placeholder="Enter students Last Name" name="student_firstname" id="student_firstname" required>
+
+    <label for="student_lastname"><b>Student's Last Name</b></label>
+    <input type="text" placeholder="Enter students Last Name" name="student_lastname" id="student_lastname" required>
+
+    <label for="student_id"><b>What is their Student ID?</b></label>
+    <input type="text" placeholder="Enter their student ID" name="student_id" id="student_id" required>
+
+    <label for="student_points"><b>Set Point Value in Digits</b></label>
+    <input type="number" placeholder="Enter point value in digits" name="student_points" id="student_points" required>
+
+    <input type="submit" name="submit" class="registerbtn">
+  </div>
+</form>
+
+<style>
+img {
+  width: 100%;
+}
+
+body {
+  padding: 20px;
+}
+
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #000000;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+
+
+{% endblock %}

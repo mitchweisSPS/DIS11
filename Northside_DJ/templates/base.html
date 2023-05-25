@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<img class="img" src="../static/images/header.png" alt="dj school header">
+
+    <div class="w3-bar w3-black">
+        <a href="{{ url_for('index') }}" class="w3-bar-item w3-button">Home</a>
+        <!--{% if session['role'] != "student" %}
+        <a href="{{ url_for('index') }}" class="w3-bar-item w3-button">Events Manager</a>
+        {% endif %} -->
+        <a href="{{ url_for('search') }}" class="w3-bar-item w3-button">Search</a>
+        <a href="{{ url_for('events') }}" class="w3-bar-item w3-button">Events</a>
+        <a href="{{ url_for('queue') }}" class="w3-bar-item w3-button">Queue</a>
+        <a href="{{ url_for('landingpage') }}" class="w3-bar-item w3-button">Logout</a>
+    </div>
+    <div class="div2">
+    <h1>Northside DJ</h1>
+    {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+<footer class="footer">
+    <p>NorthSide DJ™</p>
+</footer>
+</html>
+
+<style>
+img {
+  width: 100%;
+}
+footer {
+  margin-top: 210px;
+  padding: 10px 10px 10px 10px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(30, 30, 30);
+  color: white;
+  text-align: center;
+}
+
+grey {
+    background-color: rgb(30, 30, 30);
+}
+</style>
