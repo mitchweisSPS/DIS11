@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Paper Scissors Rock Lizard Spock</h1>
+<img src="{{ url_for('static', filename='/images/paper.png')}}">
+<img src="{{ url_for('static', filename='/images/scissors.png')}}">
+<img src="{{ url_for('static', filename='/images/rock.png')}}">
+<img src="{{ url_for('static', filename='/images/lizard.png')}}">
+<img src="{{ url_for('static', filename='/images/spock.png')}}">
+    <form method="post" action="{{ url_for('game_result') }}" id="game_form">
+        <label for="pick">Pick</label>
+        <select id="pick" name="pick" >
+            <option value="0">Paper</option>
+            <option value="1">Scissors</option>
+            <option value="2">Rock</option>
+            <option value="3">Lizard</option>
+            <option value="4">Spock</option>
+        </select>
+        <input type="submit" value="Submit"/>
+    </form>
+    <p>0 = Paper   1 = Scissors   2 = Rock   3 = Lizard   4 = Spock</p>
+    {% if game_success == True %}
+        <hr/>
+        <hr/>
+        <p>Your pick is: {{pick}}</p>
+        <p>Computer pick: {{pick2}}</p>
+<p>Winner is: {{winner}}</p>
+        {% if winner == 1 %}
+            <p>YOU LOST</p>
+
+        {% elif winner == 2 %}
+            <p>DRAW</p>
+
+        {% elif winner == 3 %}
+            <p>YOU WON</p>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

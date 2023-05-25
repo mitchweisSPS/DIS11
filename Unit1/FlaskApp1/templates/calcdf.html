@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Python Flask Calculator</h1>
+    <form method="post" action="{{ url_for('operation_result') }}" id="calculator_form">
+        <label for="Input1">Input1:</label>
+        <input type="text" placeholder="Enter Num 1" name="Input1" id="Input1">
+        <hr/>
+        <label for="Input2">Input2:</label>
+        <input type="text" placeholder="Enter Num 2" name="Input2" id="Input2">
+        <hr/>
+        <label for="operation">Operation</label>
+        <select id="operation" name="operation">
+            <option value="+">Addition</option>
+            <option value="-">Subtraction</option>
+            <option value="/">Division</option>
+            <option value="*">Multiplication</option>
+            <option value="%">Modulus</option>
+        </select>
+        <hr/>
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="RESET" style="color: red;"/>
+    </form>
+    {% if calculation_success == True %}
+        <hr/>
+        <hr/>
+        <p>The calculation for {{input1}} {{operation}} {{input2}} is: {{result}}</p>
+    {% endif %}
+    {% if calculation_success == False %}
+        <br/>
+        <p>{{error}}</p>
+        <p>{{input}} {{operation}} {{input2}} = "{{result}}"</p>
+    {% endif %}
+{% endblock %}
